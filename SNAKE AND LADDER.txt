@@ -1,0 +1,47 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class SnakeLadderOperators {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+
+        int pos = 0;      
+        int dice;        
+        System.out.println("=== Snake and Ladder (Using Operators) ===");
+
+        while (pos < 100) {
+
+            System.out.print("\nPress 1 to roll dice: ");
+            int in = sc.nextInt();
+
+            if (in != 1) {
+                System.out.println("Invalid! Press 1 only.");
+                continue;
+            }
+            dice = rand.nextInt(6) + 1;
+            System.out.println("Dice: " + dice);
+            int next = pos + dice;
+
+            if (next > 100) {
+                System.out.println("Need exact number to reach 100!");
+                continue;
+            }
+            if (next == 3) next = 22;
+            if (next == 15) next = 44;
+            if (next == 40) next = 84;
+            if (next == 70) next = 30;
+            if (next == 90) next = 50;
+            if (next == 99) next = 10;
+
+           
+            pos = next;
+
+            System.out.println("Current Position: " + pos);
+        }
+
+        System.out.println("\n You reached 100! You Win!");
+    }
+}
